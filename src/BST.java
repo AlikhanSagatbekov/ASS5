@@ -30,16 +30,16 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
 
     private Node put(Node node, K key, V val) {
         if (node == null) {
-            return new Node(key, val);
+            return new Node(key, val); // creating new Node and placing in empty position
         }
 
-        int cmp = key.compareTo(node.key);
+        int cmp = key.compareTo(node.key); // comparing generic types
         if (cmp < 0) {
-            node.left = put(node.left, key, val);
+            node.left = put(node.left, key, val); // left sub tree
         } else if (cmp > 0) {
-            node.right = put(node.right, key, val);
+            node.right = put(node.right, key, val); // right sub t3
         } else {
-            node.val = val;
+            node.val = val; // if we have such key rewrite
         }
         return node;
     }
