@@ -108,3 +108,14 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
             inorder(node.right);
         }
     }
+    private void inorderTraversal(Node node, List<K> keys) {
+        if (node == null) {
+            return;
+        }
+
+        inorderTraversal(node.left, keys);
+        keys.add(node.key);
+        inorderTraversal(node.right, keys);
+    }
+
+}
