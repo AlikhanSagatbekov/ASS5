@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 public class BST <K extends Comparable<K>, V> implements Iterable<K>{
     private Node root;
     private int size;
@@ -11,6 +12,7 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
         inorderTraversal(root, keys);
         return keys.iterator();
     }
+
     private class Node{
         private K key;
         private V val;
@@ -37,7 +39,7 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
         if (cmp < 0) {
             node.left = put(node.left, key, val); // left sub tree
         } else if (cmp > 0) {
-            node.right = put(node.right, key, val); // right sub t3
+            node.right = put(node.right, key, val);// right sub t3
         } else {
             node.val = val; // if we have such key rewrite
         }
@@ -54,9 +56,9 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
 
         int cmp = key.compareTo(node.key);
         if (cmp < 0) {
-            return get(node.left, key); // if it is in the left sub tree
+            return get(node.left, key);// if it is in the left sub tree
         } else if (cmp > 0) {
-            return get(node.right, key); //if it is in the right sub tree
+            return get(node.right, key);//if it is in the right sub tree
         } else {
             return node.val; // if it is the value we seek
         }
@@ -91,12 +93,14 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
         }
         return node; // the issue was because here I returned the null value
     }
+
     private Node findMin(Node node){ // the method to find the smallest element in the right sub tree
         if(node.left == null){
             return node;
         }
         return findMin(node.left);
     }
+
     public void inorder(){
         inorder(root); // making the method public
     }
@@ -105,9 +109,12 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
         if(node!=null) {
             inorder(node.left); // since we need small first go to the left syb tree
             System.out.println(" KEY = " + node.key); // after we reach the smallest element print
-            inorder(node.right); // then go to the right sub-tree
+            inorder(node.right);// then go to the right sub-tree
         }
     }
+
+
+
     private void inorderTraversal(Node node, List<K> keys) {
         if (node == null) {
             return;
