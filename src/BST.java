@@ -13,8 +13,24 @@ public class BST <K extends Comparable<K>, V>{
         Node newNode = new Node(key, val);
         if(root == null){
             root = newNode;
+        }else{
+            Node currentNode = root;
+            while(currentNode != null){
+                if(newNode.val.compareTo(currentNode.val) > 0){
+                    currentNode = currentNode.right;
+                }else if(newNode.val.compareTo(currentNode.val) < 0){
+                    currentNode = currentNode.left;
+                }else if(newNode.val.equals(currentNode.val)){
+                    return;
+                }
+            }
         }
+
     }
+    public V get(K key){
+        return null;
+    public V get(K key){
+        return null;
     public V get(K key){
         return null;
     }
