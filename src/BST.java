@@ -91,15 +91,13 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
         }
         return node;
     }
-
     private Node findMin(Node node){
-                if(node.left == null){
-                    return node;
-                }
-                return findMin(node.left);
-            }
-
-            public Iterable<K> iterator(){
+        if(node.left == null){
+            return node;
+        }
+        return findMin(node.left);
+    }
+    public Iterable<K> iterator(){
                 return null;
             }
         }
