@@ -10,34 +10,60 @@ public class BST <K extends Comparable<K>, V>{
         }
     }
     public void put(K key, V val){
-        Node newNode = new Node(key, val);
-        if(root == null){
-            root = newNode;
-        }else{
-            Node currentNode = root;
-            while(currentNode != null){
-                if(newNode.val.compareTo(currentNode.val) > 0){
-                    currentNode = currentNode.right;
-                }else if(newNode.val.compareTo(currentNode.val) < 0){
-                    currentNode = currentNode.left;
-                }else if(newNode.val.equals(currentNode.val)){
-                    return;
-                }
-            }
+        root = put(root, key, val);
+    }
+
+    private Node put(Node node, K key, V val) {
+        if (node == null) {
+            return new Node(key, val);
         }
 
+        int cmp = key.compareTo(node.key);
+        if (cmp < 0) {
+            node.left = put(node.left, key, val);
+        } else if (cmp > 0) {
+            node.right = put(node.right, key, val);
+        } else {
+            node.val = val;
+        }
+        return node;
     }
-    public V get(K key){
-        return null;
-    public V get(K key){
-        return null;
-    public V get(K key){
-        return null;
-    }
-    public void delete(K key){
 
-    }
-    public Iterable<K> iterator(){
+    public V get(K key){
         return null;
+    }
+    public V get(K key){
+        return null;
+    public V get(K key){
+        return null;
+    public V get(K key){
+        return null;
+    }
+            public void delete(K key){
+
+                delete(root, key);
+            }
+            private Node delete(Node node, K key){
+                if(node == null){
+                    return null;
+                }
+                int cmp = key.compareTo(node.key);
+                if(cmp < 0){
+                    node.left = delete(node.left, key);
+                }else if(cmp > 0){
+                    node.right = delete(node.right, key);
+                }else{
+                    if(node.left == null){
+                        return node.right;
+                    }else if(node.right == null){
+                        return node.left;
+                    }else{
+                        return null;
+                    }
+                }
+                return null;
+            }
+            public Iterable<K> iterator(){
+                return null;
     }
 }
