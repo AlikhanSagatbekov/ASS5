@@ -45,7 +45,7 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
     }
 
     public V get(K key){
-        return null;
+        return get(root, key);
     }
     public V get(K key){
         return null;
