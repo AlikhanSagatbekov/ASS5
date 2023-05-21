@@ -97,7 +97,14 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
         }
         return findMin(node.left);
     }
-    public Iterable<K> iterator(){
-                return null;
-            }
+    public void inorder(){
+        inorder(root);
+    }
+
+    public void inorder(Node node){
+        if(node!=null) {
+            inorder(node.left);
+            System.out.println(" KEY = " + node.key);
+            inorder(node.right);
         }
+    }
