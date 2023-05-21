@@ -113,9 +113,9 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
             return;
         }
 
-        inorderTraversal(node.left, keys);
-        keys.add(node.key);
-        inorderTraversal(node.right, keys);
+        inorderTraversal(node.left, keys);  // Traverse left subtree
+        keys.add(node.key);                 // Process current node
+        inorderTraversal(node.right, keys); // Traverse right subtree
     }
 
 }
