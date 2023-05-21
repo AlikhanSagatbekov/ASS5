@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-public class BST <K extends Comparable<K>, V>{
+public class BST <K extends Comparable<K>, V> implements Iterable<K>{
     private Node root;
     private int size;
 
@@ -56,7 +56,8 @@ public class BST <K extends Comparable<K>, V>{
     }
     public void delete(K key){
 
-        delete(root, key);
+       root = delete(root, key);
+       size--;
     }
     private Node delete(Node node, K key){
         if(node == null){
