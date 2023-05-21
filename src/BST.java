@@ -89,23 +89,23 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
                 node.right = delete(node.right,successor.key);
             }
         }
-        return node;
+        return node; // the issue was because here I returned the null value
     }
-    private Node findMin(Node node){
+    private Node findMin(Node node){ // the method to find the smallest element in the right sub tree
         if(node.left == null){
             return node;
         }
         return findMin(node.left);
     }
     public void inorder(){
-        inorder(root);
+        inorder(root); // making the method public
     }
 
     public void inorder(Node node){
         if(node!=null) {
-            inorder(node.left);
-            System.out.println(" KEY = " + node.key);
-            inorder(node.right);
+            inorder(node.left); // since we need small first go to the left syb tree
+            System.out.println(" KEY = " + node.key); // after we reach the smallest element print
+            inorder(node.right); // then go to the right sub-tree
         }
     }
     private void inorderTraversal(Node node, List<K> keys) {
