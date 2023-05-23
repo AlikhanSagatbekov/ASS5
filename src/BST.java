@@ -139,5 +139,8 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
         }
         return size;
     }
+    public int HideBST(){
+        return HideBST(root,0);
+    }
 
 }
