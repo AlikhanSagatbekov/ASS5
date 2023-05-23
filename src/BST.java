@@ -124,5 +124,20 @@ public class BST <K extends Comparable<K>, V> implements Iterable<K>{
         keys.add(node.key);                 // Process current node
         inorderTraversal(node.right, keys); // Traverse right subtree
     }
+    public int HideBST(Node node, int size){
+        if(node.right != null || node.left != null){
+            size = size +1;
+            int sizeL = 0;
+            int sizeR = 0;
+            if(node.right != null){
+                sizeR = HideBST(node.right, size);
+            }
+            if(node.left != null){
+                sizeL = HideBST(node.left, size);
+            }
+            size = Math.max(sizeR, sizeL);
+        }
+        return size;
+    }
 
 }
